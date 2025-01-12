@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Footer from "./components/Footerr";
+
 
 const Joinus: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -55,6 +57,7 @@ const Joinus: React.FC = () => {
   };
 
   return (
+    <div>
     <div className="flex justify-center items-center mt-2 h-full bg-gray-50">
       <section className="w-[380px] h-[830px] relative">
         <div className="w-[324px] h-[128px] relative mx-auto">
@@ -152,6 +155,10 @@ const Joinus: React.FC = () => {
           </button>
         </p>
       </section>
+     
+    </div>
+
+    <Footer/>
     </div>
   );
 };
