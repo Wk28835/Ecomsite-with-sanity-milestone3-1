@@ -16,7 +16,7 @@ interface Cart {
 
 
 
-export default function cart() {
+export default function Cart() {
 
   const [products,setProducts]=useState<Cart[]>([]);
  
