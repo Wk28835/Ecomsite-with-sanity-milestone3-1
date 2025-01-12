@@ -46,6 +46,7 @@ export default function Cart() {
         });
         if(response.ok){
           setProducts(products.filter((products)=> products._id !==cartId))
+          alert("Product added to Cart Successfullly!");
         }else{
             console.error("Failed to Delete Cart Item!")
         }
