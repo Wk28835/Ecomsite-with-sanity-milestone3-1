@@ -1,6 +1,7 @@
 import sanityClient from "@/sanity/lib/client";
 import Image from "next/image";
 import { GetStaticPropsContext } from "next";
+import Footer from "../components/Footerr";
 
 interface ProductDetailsProps {
   product: {
@@ -22,26 +23,43 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     );
   }
 
+  const handleAddToCart = async ()=>{
+    try{
+      await sanityClient.create({
+        _type:"cart",
+        title:product.title,
+        price:product.price,
+        quantity:1,
+        category:product.category,
+        image:product.imageUrl
+      })
+      console.log("Product Added to Cart!")
+      console.log(product.imageUrl,"check")
+    } catch(error){
+      console.error("Failed to Add Product to Cart!")
+    }
+  }
+
   return (
+    <div>
     <div style={{ width: "1140px", height: "1073px" }}>
       <section style={{ width: "900px", height: "1125px", top: "106px", left: "120px", position: "absolute" }}>
         <div>
+         <div> 
           <Image
             style={{ top: "110px", left: "-22px", position: "absolute" }}
             alt="image"
             width={653}
             height={653}
-            src={product.imageUrl || "/shoe5.png"} // Default image if imageUrl is missing
-          />
+            src={product.imageUrl} // Default image if imageUrl is missing
+          /></div>
           <div
             style={{
               width: "376px",
               height: "1041px",
               top: "-26px",
               left: "768px",
-              position: "absolute",
-            }}
-          >
+              position: "absolute",}} >
             <h1
               className="text-black"
               style={{
@@ -50,11 +68,8 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 height: "96px",
                 top: "135px",
                 position: "absolute",
-                lineHeight: "48px",
-              }}
-            >
-              {product.title}
-            </h1>
+                lineHeight: "48px", }} >{product.title}</h1>
+                
             <p
               style={{
                 width: "374.92px",
@@ -62,10 +77,18 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 height: "252px",
                 top: "255px",
                 position: "absolute",
-                lineHeight: "28px",
-              }}
-            >
-              {product.category}
+                lineHeight: "28px", }} >
+              Category: {product.category}
+            </p>  
+            <p
+              style={{
+                width: "374.92px",
+                fontSize: "15px",
+                height: "252px",
+                top: "300px",
+                position: "absolute",
+                lineHeight: "28px", }} >
+             Available Quantity: {product.quantity}
             </p>
             <p
               style={{
@@ -100,16 +123,15 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 height={29}
                 src="/cart1.png"
               />
-              <button
-                className="text-white my-1"
+              <button onClick={handleAddToCart}
+              className="text-white my-1"
                 style={{
                   textAlign: "center",
                   width: "99px",
                   height: "29px",
                   fontSize: "16px",
                   lineHeight: "24px",
-                  fontWeight: "500",
-                }}
+                  fontWeight: "500", }}
               >
                 Add to Cart
               </button>
@@ -117,6 +139,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           </div>
         </div>
       </section>
+    </div>
+    
+<Footer/>
     </div>
   );
 }
