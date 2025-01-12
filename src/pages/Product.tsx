@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import Footer from "./components/Footerr";
 
 
 const product: React.FC = () => {
@@ -14,7 +15,7 @@ const product: React.FC = () => {
     <div>
 <section>
         <div className="text-black text-nowrap flex"
-         style={{height:"36px",marginLeft:"48px",marginTop:"95px"}}>
+         style={{height:"36px",marginLeft:"48px",marginTop:"60px"}}>
         <h1  style={{width:"110px",height:"32px",fontSize:"24px", lineHeight:"31.2px"}}
         >New (500)</h1>
 
@@ -480,7 +481,7 @@ const product: React.FC = () => {
 
 </div>
 
-
+<Footer/>
 
 </div>
     
