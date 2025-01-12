@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+
 interface Product {
   _id: string;
   title: string;
@@ -86,7 +87,7 @@ const Slider = () => {
               <h2 className="mt-4 font-semibold text-lg">{product.title}</h2>
               <p className="text-gray-600">${product.price}</p>
               <p className="text-sm text-gray-500">{product.category}</p>
-              <button className="bg-green-500 text-white rounded p-2 mt-4">Add to Cart</button>
+              
             </div>
           ))}
         </div>
@@ -108,7 +109,10 @@ const Slider = () => {
           </div>
         </div>
       </div>
+      
     </div>
+
+    
   );
 };
 
