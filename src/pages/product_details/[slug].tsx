@@ -34,9 +34,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         image:product.imageUrl
       })
       console.log("Product Added to Cart!")
-      console.log(product.imageUrl,"check")
-    } catch(error){
-      console.error("Failed to Add Product to Cart!")
+      
+    } catch{
+      console.log("Failed to Add Product to Cart!")
     }
   }
 
