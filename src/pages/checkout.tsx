@@ -1,6 +1,7 @@
 
 import { ShoppingBag } from "lucide-react";
 import Image from "next/image";
+import Footer from "./components/Footerr";
 
 const checkout: React.FC = () => {
 
@@ -416,7 +417,7 @@ const checkout: React.FC = () => {
 
         </div>
         
-  
+  <Footer/>
       </div>
   
 
