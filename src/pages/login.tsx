@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Footer from "./components/Footerr";
 
 
 
@@ -90,7 +91,7 @@ const login: React.FC = () => {
 
       </section>
         
-  
+  <Footer/>
       </div>
   
       
