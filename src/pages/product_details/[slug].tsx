@@ -33,10 +33,10 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         category:product.category,
         image:product.imageUrl
       })
-      console.log("Product Added to Cart!")
-      
+      window.alert("Product Added to Cart!")
+     
     } catch{
-      console.log("Failed to Add Product to Cart!")
+      window.alert("Failed to Add Product to Cart!")
     }
   }
 
